@@ -1,18 +1,12 @@
 pipeline{
     agent any
     stages{
-        stage('FirstStage'){
+        stage('Maven'){
             steps{
-                sh 'hostname -i'
+                echo "Welcome to Maven, printing Maven version"
+                sh 'mvn --version'
             }
-        }
-        stage('SecondStage'){
-            agent{
-                label 'app-slave'
-            }
-            steps{
-                sh 'hostname -i'
-            }
+            
         }
     }
 }
