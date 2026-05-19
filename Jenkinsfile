@@ -1,15 +1,16 @@
-pipeline {
-    agent none
-    stages {
-        stage('Example') {
-            agent any
-            options {
-                // Timeout counter starts BEFORE agent is allocated
-                timeout(time: 1, unit: 'SECONDS')
+pipeline{
+    agent {
+        label 'app-slave'
+    }
+    stages{
+        stage ('Build'){
+            steps{
+                echo " Hello from build step"
             }
-            steps {
-                echo 'Hello World'
-                echo 'This is my modified file'
+        }
+        stage ('hostname'){
+            steps{
+                sh 'hostname -i'
             }
         }
     }
