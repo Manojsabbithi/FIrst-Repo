@@ -1,17 +1,15 @@
 pipeline{
-    agent {
-        label 'app-slave'
-    }
+    agent any
     stages{
-        stage ('Build'){
-            steps{
-                echo " Hello from build step"
-            }
-        }
-        stage ('hostname'){
+        stage('FirstStage'){
             steps{
                 sh 'hostname -i'
             }
         }
+        stage('SecondStage'{
+            steps{
+                sh 'hostname -i'
+            }
+        })
     }
 }
