@@ -7,6 +7,9 @@ pipeline{
             }
         }
         stage('SecondStage'){
+            agent{
+                label 'app-slave'
+            }
             steps{
                 sh 'hostname -i'
             }
