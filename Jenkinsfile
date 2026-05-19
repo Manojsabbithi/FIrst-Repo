@@ -6,10 +6,10 @@ pipeline{
                 sh 'hostname -i'
             }
         }
-        stage('SecondStage'{
+        stage('SecondStage'){
             steps{
                 sh 'hostname -i'
             }
-        })
+        }
     }
 }
